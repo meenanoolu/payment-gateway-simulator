@@ -7,9 +7,4 @@ def home():
     return {
         "message": "Payment Gateway Simulator"
     }
-
-@app.get("/health")
-def health():
-    return {
-        "status": "running"
-    }
+    
