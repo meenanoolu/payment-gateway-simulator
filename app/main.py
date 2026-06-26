@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from app.payment_service import authorize_payment
 
 app = FastAPI()
 
@@ -18,6 +19,8 @@ Base.metadata.create_all(bind=engine)
 @app.post("/authorize")
 def authorize(payment: PaymentRequest):
 
-    return {
-        "status":"AUTHORIZED"
-    }
+    return authorize_payment(
+        payment.card_number, 
+        payment.amount
+    )
+
