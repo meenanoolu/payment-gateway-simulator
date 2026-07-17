@@ -35,6 +35,7 @@ def test_capture_twice_fails(client):
     assert resp.json()["status"] == "ERROR"
 
 
+
 def test_void_authorized_transaction_succeeds(client):
     txn_id = _authorize(client, 100)
     resp = client.post(f"/void/{txn_id}")
